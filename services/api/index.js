@@ -1,11 +1,16 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.get('/health', (req, res)=>{
-    res.json({status: "Health status is ok!"});
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, ()=>{
-    console.log("API is running on PORT ${PORT}");
-});
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`API is running on port ${PORT}`);
+  });
+}
+
+module.exports = app;

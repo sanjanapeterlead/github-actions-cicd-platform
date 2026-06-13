@@ -1,10 +1,10 @@
 const request = require("supertest");
 const app = require("../index");
 
-describe("Health endpoint", () =>{
-    if("returns ok", async()=>{
-        const res = await request(app).get("/health");
-        expect(res.statusCode).toBe(200);
-        expect(res.body.status).toBe("ok");
-    });
+describe("Health endpoint", () => {
+  it("returns ok", async () => {
+    const res = await request(app).get("/health");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.status).toBe("ok");
+  });
 });
